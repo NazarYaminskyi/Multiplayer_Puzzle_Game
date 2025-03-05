@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Walk();
-        Jump();
+        //Jump();
         CheckingGround();
     }
     private void FixedUpdate()
