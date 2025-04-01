@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerVsual : MonoBehaviour
+public class SecondPlayerVisual : MonoBehaviour
 {
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
