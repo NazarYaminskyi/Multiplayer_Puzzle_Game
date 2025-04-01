@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using UnityEngine;
 
 
@@ -21,12 +22,15 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        Walk();
-        Jump();
-        CheckingGround();
+        //Walk();
+        //Jump();
+        //CheckingGround();
     }
     private void FixedUpdate()
     {
+        Walk();
+        Jump();
+        CheckingGround();
     }
     public bool IsRunning()
     {
@@ -50,40 +54,13 @@ public class Player : MonoBehaviour
         rb.linearVelocity = moveVector2;
     }
 
-    //private bool _jumpControl;
-    //private float _jumpTime = 0;
-    //[SerializeField] private float jumpControlTime = 0.7f;
     private void Jump()
     {
-
-        if (Input.GetKeyDown(KeyCode.Space) && _onGround)
+        if (Input.GetKey(KeyCode.Space) && _onGround)
         {
-            //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForse);
-            rb.AddForce(Vector2.up * jumpForse);
-            //rb.linearVelocity = new Vector2(rb.position.x, jumpForse);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForse);
         }
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    if (_onGround)
-        //    {
-        //        _jumpControl = true;
-        //    }
-        //}
-        //else
-        //{
-        //    _jumpControl = false;
-        //}
-        //if (_jumpControl)
-        //{
-        //    if ((_jumpTime += Time.deltaTime) < jumpControlTime)
-        //    {
-        //        rb.AddForce(Vector2.up * jumpForse/(_jumpTime*10));
-        //    }
-        //}
-        //else
-        //{
-        //    _jumpTime = 0;
-        //}
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
