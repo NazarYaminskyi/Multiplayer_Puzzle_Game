@@ -6,9 +6,9 @@ using UnityEngine;
 
 
 [SelectionBase]
-public class Player : MonoBehaviour
+public class SecondPlayer : MonoBehaviour
 {
-    public static Player Instance { get; private set; }
+    public static SecondPlayer Instance { get; private set; }
     [SerializeField] private float _speed = 10f;
     [SerializeField] private float jumpForse = 100f;
     public Vector2 moveVector2;
@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && _onGround)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForse);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, -jumpForse);
         }
 
     }

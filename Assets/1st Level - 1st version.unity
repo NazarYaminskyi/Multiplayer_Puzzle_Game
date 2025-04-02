@@ -369,7 +369,7 @@ Transform:
   m_GameObject: {fileID: 116436398}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: -10}
+  m_LocalPosition: {x: -6.35, y: 0.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 132446426}
   - component: {fileID: 132446427}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mountain01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 138304114}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 141208421}
   - component: {fileID: 141208422}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cloud02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +591,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 195654244}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -625,7 +625,7 @@ GameObject:
   m_Component:
   - component: {fileID: 262353540}
   - component: {fileID: 262353541}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: mountain02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,7 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 372780556}
   - component: {fileID: 372780557}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cloud03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -886,7 +886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 511834509}
   - component: {fileID: 511834510}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cloud02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1240,7 +1240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942017844}
   - component: {fileID: 942017845}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: cloud03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1328,7 +1328,7 @@ GameObject:
   - component: {fileID: 1063293113}
   - component: {fileID: 1063293115}
   - component: {fileID: 1063293114}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Level Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2406,7 +2406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1220805473}
   - component: {fileID: 1220805474}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: sky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2499,7 +2499,7 @@ GameObject:
   - component: {fileID: 1317008802}
   - component: {fileID: 1317008801}
   - component: {fileID: 1317008803}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4235,8 +4235,8 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!60 &1317008803
-PolygonCollider2D:
+--- !u!19719996 &1317008803
+TilemapCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4270,22 +4270,8 @@ PolygonCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -21.031582, y: 3.9734116}
-      - {x: -23.90831, y: 3.9335902}
-      - {x: -23.861515, y: -1.6918087}
-      - {x: -19.034636, y: -1.5636549}
-      - {x: -21.038277, y: 3.5491376}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
 --- !u!1 &1380948376
 GameObject:
@@ -4383,7 +4369,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1521922217}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Environmant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4418,7 +4404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1693822374}
   - component: {fileID: 1693822375}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4468,11 +4454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8167382944907046805, guid: 55b79503a662a564ea10786e449fd0c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -23.03
+      value: -22.37
       objectReference: {fileID: 0}
     - target: {fileID: 8167382944907046805, guid: 55b79503a662a564ea10786e449fd0c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.35
+      value: 4.65
       objectReference: {fileID: 0}
     - target: {fileID: 8167382944907046805, guid: 55b79503a662a564ea10786e449fd0c9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4521,6 +4507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1921878075}
   - component: {fileID: 1921878076}
+  - component: {fileID: 1921878077}
   m_Layer: 3
   m_Name: Border
   m_TagString: Untagged
@@ -4598,6 +4585,52 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1921878077
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921878074}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
