@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -12,8 +13,8 @@ TagManager:
   - Environment
   - Water
   - UI
-  - 
-  - 
+  - Ground
+  - Player2
   - 
   - 
   - 
