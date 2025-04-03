@@ -1,6 +1,7 @@
 using UnityEngine;
+using Unity.Netcode;
 
-public class PlayerController2DD : MonoBehaviour
+public class PlayerMultiplayerScript : NetworkBehaviour
 {
     public float moveSpeed = 5f; // Швидкість руху
     public float jumpForce = 10f; // Сила стрибка
@@ -8,13 +9,23 @@ public class PlayerController2DD : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public override void OnNetworkSpawn()
+    {
+        
+        if(!IsOwner)
+        {
+            Destroy(this);
+        }
+    }
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        
         Move();
         Jump();
     }
