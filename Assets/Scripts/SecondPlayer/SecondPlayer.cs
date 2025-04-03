@@ -10,7 +10,7 @@ public class SecondPlayer : MonoBehaviour
 {
     public static SecondPlayer Instance { get; private set; }
     [SerializeField] private float _speed = 10f;
-    [SerializeField] private float jumpForse = 100f;
+    [SerializeField] private float jumpForse = 10f;
     public Vector2 moveVector2;
     private Rigidbody2D rb;
     private bool _isRunning;
@@ -22,16 +22,11 @@ public class SecondPlayer : MonoBehaviour
     }
     private void Update()
     {
-        //Walk();
-        //Jump();
-        //CheckingGround();
-    }
-    private void FixedUpdate()
-    {
         Walk();
         Jump();
         CheckingGround();
     }
+
     public bool IsRunning()
     {
         if (Math.Abs(moveVector2.x) > _minRunningSpeed)
@@ -51,20 +46,20 @@ public class SecondPlayer : MonoBehaviour
     private void Walk()
     {
         moveVector2.x = Input.GetAxis("Horizontal") * _speed;
-        rb.linearVelocity = moveVector2;
+        //rb.linearVelocity = moveVector2;
+        float moveInput = Input.GetAxisRaw("Horizontal");
+        rb.linearVelocity = new Vector2(moveInput * _speed, -rb.linearVelocity.y);
     }
 
     private void Jump()
     {
-        if (Input.GetKey(KeyCode.Space) && _onGround)
+        if (Input.GetKeyDown(KeyCode.Space) && _onGround)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, -jumpForse);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForse);
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
+
     [SerializeField] private bool _onGround = false;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _checkRadius = 0.1f;
@@ -73,7 +68,5 @@ public class SecondPlayer : MonoBehaviour
     {
         _onGround = Physics2D.OverlapCircle(_groundCheck.position, _checkRadius, _ground);
 
-        Debug.Log("On Ground: " + _onGround);
     }
-
 }

@@ -10,11 +10,12 @@ public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }
     [SerializeField] private float _speed = 10f;
-    [SerializeField] private float jumpForse = 100f;
+    [SerializeField] private float jumpForse = 10f;
     public Vector2 moveVector2;
     private Rigidbody2D rb;
     private bool _isRunning;
     private float _minRunningSpeed = 0.01f;
+    private bool isGrounded; // Перевірка, чи персонаж на землі
     private void Awake()
     {
         Instance = this;
@@ -22,15 +23,15 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        //Walk();
-        //Jump();
-        //CheckingGround();
-    }
-    private void FixedUpdate()
-    {
         Walk();
         Jump();
         CheckingGround();
+    }
+    private void FixedUpdate()
+    {
+        //Walk();
+        //Jump();
+        //CheckingGround();
     }
     public bool IsRunning()
     {
@@ -51,29 +52,46 @@ public class Player : MonoBehaviour
     private void Walk()
     {
         moveVector2.x = Input.GetAxis("Horizontal") * _speed;
-        rb.linearVelocity = moveVector2;
+        //rb.linearVelocity = moveVector2;
+        float moveInput = Input.GetAxisRaw("Horizontal"); 
+        rb.linearVelocity = new Vector2(moveInput * _speed, rb.linearVelocity.y);
     }
 
     private void Jump()
     {
-        if (Input.GetKey(KeyCode.Space) && _onGround)
+        if (Input.GetKeyDown(KeyCode.Space) && _onGround)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForse);
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-    }
+
     [SerializeField] private bool _onGround = false;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _checkRadius = 0.1f;
     [SerializeField] private LayerMask _ground;
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground")) // Перевіряємо, чи доторкнулися до землі
+    //    {
+    //        _onGround = true;
+    //        Debug.Log("True");
+    //    }
+
+    //}
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground")) // Перевіряємо, чи персонаж покинув землю
+    //    {
+    //        _onGround = false;
+
+    //    }
+    //}
     private void CheckingGround()
     {
         _onGround = Physics2D.OverlapCircle(_groundCheck.position, _checkRadius, _ground);
 
-        Debug.Log("On Ground: " + _onGround);
     }
 
 }
