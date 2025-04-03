@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using UnityEngine;
+
 public class PlayerController2DD : MonoBehaviour
 {
     public float moveSpeed = 5f; // Швидкість руху
