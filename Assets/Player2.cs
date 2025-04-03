@@ -1,18 +1,24 @@
 using UnityEngine;
 
 using UnityEngine;
+using System;
 
 public class PlayerController2DD : MonoBehaviour
 {
     public float moveSpeed = 5f; // Швидкість руху
     public float jumpForce = 10f; // Сила стрибка
     private bool isGrounded; // Перевірка, чи персонаж на землі
+    private bool _isRunning; // Перевірка, чи персонаж біжить
+    private float _minRunningSpeed = 0.001f; // Мінімальна швидкість для бігу
+    public Vector2 moveVector2;
+    public static PlayerController2DD Instance { get; private set; }
 
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Instance = this;
     }
 
     void Update()
@@ -20,11 +26,28 @@ public class PlayerController2DD : MonoBehaviour
         Move();
         Jump();
     }
-
+    public bool IsRunning()
+    {
+        if (Math.Abs(moveVector2.x) > _minRunningSpeed)
+        {
+            _isRunning = true;
+        }
+        else
+        {
+            _isRunning = false;
+        }
+        return _isRunning;
+    }
+    public bool OnGround()
+    {
+        return isGrounded;
+    }
     void Move()
     {
         float moveInput = Input.GetAxisRaw("Horizontal"); // Отримуємо ввід (A/D або стрілки)
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        //moveVector2.x = Input.GetAxis("Horizontal") * moveSpeed;
+        //rb.linearVelocity = moveVector2;
     }
 
     void Jump()

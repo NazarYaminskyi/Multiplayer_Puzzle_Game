@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-public class SecondPlayerVisual : MonoBehaviour
+public class Player2Visual : MonoBehaviour
 {
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -14,18 +13,18 @@ public class SecondPlayerVisual : MonoBehaviour
     }
     private void Update()
     {
-        _animator.SetBool(IS_RUNNING, SecondPlayer.Instance.IsRunning());
-        _animator.SetBool(ON_GROUND, SecondPlayer.Instance.OnGround());
+        _animator.SetBool(IS_RUNNING, PlayerController2DD.Instance.IsRunning());
+        _animator.SetBool(ON_GROUND, PlayerController2DD.Instance.OnGround());
         Flip();
     }
 
     private void Flip()
     {
-        if (SecondPlayer.Instance.moveVector2.x > 0)
+        if (Player.Instance.moveVector2.x > 0)
         {
             _spriteRenderer.flipX = true;
         }
-        else if (SecondPlayer.Instance.moveVector2.x < 0)
+        else if (Player.Instance.moveVector2.x < 0)
         {
             _spriteRenderer.flipX = false;
         }
