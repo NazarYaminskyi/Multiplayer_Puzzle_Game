@@ -81,4 +81,8 @@ public class PlayerController2DD : MonoBehaviour
     {
         transform.position = new Vector2(20.464f, 7.656f);
     }
+    public void TrampolineJump(float high)
+    {
+       rb.linearVelocity = new Vector2(rb.linearVelocity.x, high);
+    }
 }
