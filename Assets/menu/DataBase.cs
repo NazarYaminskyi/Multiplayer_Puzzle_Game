@@ -5,11 +5,12 @@ using System.Collections.Generic;
 
 public class UserAPI : MonoBehaviour
 {
-    [SerializeField] private GameObject userTextPrefab; // Це буде твій текстовий префаб
-    [SerializeField] private Transform contentTransform; // Це Content зі ScrollView
+    [SerializeField] private GameObject userTextPrefab;  // текстовий префаб
+    [SerializeField] private Transform contentTransform; // Content зі ScrollView
 
 
-private string apiUrl = "http://192.168.1.243:5000/users";
+    private string apiUrl = "http://192.168.1.217:5000/users"; // або /players
+
 
     void Start()
     {
