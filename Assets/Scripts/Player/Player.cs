@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private bool _isRunning;
     private float _minRunningSpeed = 0.01f;
-    private bool isGrounded; // Перевірка, чи персонаж на землі
+    private bool isGrounded;
     private void Awake()
     {
         Instance = this;
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         rb.linearVelocity = new Vector2(moveInput * _speed, rb.linearVelocity.y);
     }
 
-    private void Jump()
+    public void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && _onGround)
         {
@@ -66,8 +66,8 @@ public class Player : MonoBehaviour
 
     }
 
-    [SerializeField] private bool _onGround = false;
-    [SerializeField] private Transform _groundCheck;
+    [SerializeField] public bool _onGround = false;
+    [SerializeField] public Transform _groundCheck;
     [SerializeField] private float _checkRadius = 0.1f;
     [SerializeField] private LayerMask _ground;
     //private void OnCollisionEnter2D(Collision2D collision)
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
     //    }
     //}
-    private void CheckingGround()
+    public void CheckingGround()
     {
         _onGround = Physics2D.OverlapCircle(_groundCheck.position, _checkRadius, _ground);
 

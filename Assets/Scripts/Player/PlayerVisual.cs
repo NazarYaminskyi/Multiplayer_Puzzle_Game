@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerVsual : MonoBehaviour
+public class PlayerVisual : MonoBehaviour
 {
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
@@ -12,14 +12,14 @@ public class PlayerVsual : MonoBehaviour
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    private void Update()
+    public void Update()
     {
         _animator.SetBool(IS_RUNNING, Player.Instance.IsRunning());
         _animator.SetBool(ON_GROUND, Player.Instance.OnGround());
         Flip();
     }
 
-    private void Flip()
+    public void Flip()
     {
         if (Player.Instance.moveVector2.x > 0)
         {
