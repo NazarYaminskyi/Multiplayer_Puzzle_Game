@@ -5,9 +5,10 @@ public class Spikes : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Об'єкт торкнувся: " + other.gameObject.name);
         if(other.tag == "Player2")
         {
-            PlayerController2DD player = other.transform.GetComponent<PlayerController2DD>();
+            Player player = other.GetComponentInParent<Player>();
             player.Death();
             Debug.Log("Destroyed!");
         }

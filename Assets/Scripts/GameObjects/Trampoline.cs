@@ -6,9 +6,10 @@ public class Trampoline : MonoBehaviour
     public float high = 0.1f;
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player2")
+        //ButtonFire fire = FindObjectOfType<ButtonFire>();
+        if(other.tag == "Player2" && ButtonTrampoline.IsOff)
         {
-            PlayerController2DD player = other.transform.GetComponent<PlayerController2DD>();
+            Player player = other.GetComponentInParent<Player>();
             player.TrampolineJump(high);
             Debug.Log("Jumped");
         }
