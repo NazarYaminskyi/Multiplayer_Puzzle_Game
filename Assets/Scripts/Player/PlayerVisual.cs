@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+
+public class PlayerVisual : MonoBehaviour
+
 // public class PlayerVsual : MonoBehaviour
 // {
 //     private Animator _animator;
@@ -45,16 +48,15 @@ public class PlayerVsual : MonoBehaviour
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _player = GetComponentInParent<Player>(); // Або GetComponent, якщо на тому ж об'єкті
-    }
-
-    private void Update()
+    }  
+    public void Update()
     {
         _animator.SetBool(IS_RUNNING, _player.IsRunning());
         _animator.SetBool(ON_GROUND, _player.OnGround());
         Flip();
     }
 
-    private void Flip()
+    public void Flip()
     {
         if (_player.moveVector2.x > 0)
         {

@@ -92,12 +92,14 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private bool _isRunning;
     private float _minRunningSpeed = 0.01f;
+
+    private bool isGrounded;
+
     private bool _onGround = false;
 
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _checkRadius = 0.1f;
     [SerializeField] private LayerMask _ground;
-
     private void Awake()
     {
         Instance = this;
@@ -132,7 +134,7 @@ public class Player : MonoBehaviour
         rb.linearVelocity = moveVector2;
     }
 
-    private void Jump()
+    public void Jump()
     {
         if (Input.GetKeyDown(jumpKey) && _onGround)
         {
@@ -140,7 +142,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void CheckingGround()
+    [SerializeField] public bool _onGround = false;
+    [SerializeField] public Transform _groundCheck;
+    [SerializeField] private float _checkRadius = 0.1f;
+    [SerializeField] private LayerMask _ground;
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground")) // ����������, �� ������������ �� ����
+    //    {
+    //        _onGround = true;
+    //        Debug.Log("True");
+    //    }
+
+    //}
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground")) // ����������, �� �������� ������� �����
+    //    {
+    //        _onGround = false;
+
+    //    }
+    //}
+    public void CheckingGround()
     {
         _onGround = Physics2D.OverlapCircle(_groundCheck.position, _checkRadius, _ground);
     }

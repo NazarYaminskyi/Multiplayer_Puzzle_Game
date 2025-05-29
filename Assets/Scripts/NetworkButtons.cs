@@ -20,6 +20,6 @@ public class NetworkButtons : MonoBehaviour {
     //     GetComponent<UnityTransport>().SetDebugSimulatorParameters(
     //         packetDelay: 120,
     //         packetJitter: 5,
-    //         dropRate: 3);
+    //         dropRate:3);
     // }
 }
