@@ -95,9 +95,9 @@ public class Player : MonoBehaviour
 
     private bool isGrounded;
 
-    private bool _onGround = false;
+    public bool _onGround = false;
 
-    [SerializeField] private Transform _groundCheck;
+    [SerializeField] public Transform _groundCheck;
     [SerializeField] private float _checkRadius = 0.1f;
     [SerializeField] private LayerMask _ground;
     private void Awake()
@@ -141,11 +141,6 @@ public class Player : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
-
-    [SerializeField] public bool _onGround = false;
-    [SerializeField] public Transform _groundCheck;
-    [SerializeField] private float _checkRadius = 0.1f;
-    [SerializeField] private LayerMask _ground;
     //private void OnCollisionEnter2D(Collision2D collision)
     //{
     //    if (collision.gameObject.CompareTag("Ground")) // ����������, �� ������������ �� ����

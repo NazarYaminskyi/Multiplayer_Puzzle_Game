@@ -1,9 +1,6 @@
 using System;
 using UnityEngine;
 
-
-public class PlayerVisual : MonoBehaviour
-
 // public class PlayerVsual : MonoBehaviour
 // {
 //     private Animator _animator;
@@ -34,7 +31,7 @@ public class PlayerVisual : MonoBehaviour
 //         }
 //     }
 // }
-public class PlayerVsual : MonoBehaviour
+public class PlayerVisual : MonoBehaviour
 {
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
