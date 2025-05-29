@@ -14,12 +14,12 @@ public class Flying1 : MonoBehaviour
     void Update()
     {
         float speed = Mathf.Pow(lever.xPosition - 56f, 1.5f); 
-        transform.Translate(direction * speed * Time.deltaTime);
-        if (transform.position.y <= endpoint)
+        transform.Translate(direction * (speed * Time.deltaTime));
+        if (transform.position.y >= endpoint)
         {
             direction = Vector2.up; 
         }
-        else if (transform.position.y >= startpoint)
+        else if (transform.position.y <= startpoint)
         {
             direction = Vector2.down; 
         }
@@ -28,7 +28,7 @@ public class Flying1 : MonoBehaviour
     {
         if(other.tag == "Player2")
         {
-            PlayerController2DD player = other.transform.GetComponent<PlayerController2DD>();
+            Player player = other.GetComponentInParent<Player>();
             player.Death();
             Debug.Log("Destroyed!");
         }
