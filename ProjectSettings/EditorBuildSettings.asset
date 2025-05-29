@@ -17,6 +17,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/menu/list.unity
     guid: 840fcec6d1dd2904f9709d66f887fb37
+  - enabled: 1
+    path: Assets/menu/menuLVL.unity
+    guid: 2f92bd7414d9b6e488faea789786202f
+  - enabled: 1
+    path: Assets/menu/RegOrLog.unity
+    guid: ba34b9fd637f37945b0de3a67059115c
+  - enabled: 1
+    path: Assets/2nd Level.unity
+    guid: 92945e79261804b79888ea9c82d6f70a
+  - enabled: 1
+    path: Assets/1st Level - 1st version.unity
+    guid: b81f1852d7692bc499f711b87bb32eb5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
