@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     //public void PlayGame()
     //{
-    //    SceneManager.LoadScene("Назва_Сцени"); // set name of scene
+    //    SceneManager.LoadScene("пїЅпїЅпїЅпїЅпїЅ_пїЅпїЅпїЅпїЅпїЅ"); // set name of scene
     //}
 
     //public void OpenProgressList()
@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
     public void GoTo2LVL()
     {
         SceneManager.LoadScene("2nd Level");
+        SceneManager.LoadScene("Dynamic Objects Lvl2", LoadSceneMode.Additive);
     }
     public void GoToMenuLVL()
     {
@@ -40,7 +41,10 @@ public class MainMenu : MonoBehaviour
 
     public void ExitGame()
     {
-        Application.Quit();
-
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }
