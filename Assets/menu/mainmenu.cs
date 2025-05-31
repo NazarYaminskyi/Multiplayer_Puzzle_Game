@@ -27,7 +27,6 @@ public class MainMenu : MonoBehaviour
     public void GoTo2LVL()
     {
         SceneManager.LoadScene("2nd Level");
-        SceneManager.LoadScene("Dynamic Objects Lvl2", LoadSceneMode.Additive);
     }
     public void GoToMenuLVL()
     {

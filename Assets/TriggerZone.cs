@@ -48,12 +48,9 @@ public class EndZone : MonoBehaviour
         {
             levelLoaded = true;
             Debug.Log("Both players entered! Loading 2Level...");
-            camera1.enabled = false;
-            camera2.enabled = true;
             GameObject p1 = GameObject.Find("1");
             GameObject p2 = GameObject.Find("2");
             SceneManager.LoadScene("2nd Level");
-            SceneManager.LoadScene("Dynamic Objects Lvl2", LoadSceneMode.Additive);
             p1.transform.position = new Vector2(21, -9);
             p2.transform.position = new Vector2(21, 4);
             
