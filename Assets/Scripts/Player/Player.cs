@@ -3,7 +3,7 @@ using UnityEngine;
 [SelectionBase]
 public class Player : MonoBehaviour
 {
-    public static Player Instance { get; private set; }
+    public static Player Instance { get;  set; }
     [SerializeField] private float _speed = 10f;
     [SerializeField] private float jumpForce = 10f;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    public void Update()
     {
         Walk();
         Jump();
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         return _onGround;
     }
 
-    private void Walk()
+    public void Walk()
     {
         float moveInput = 0;
 

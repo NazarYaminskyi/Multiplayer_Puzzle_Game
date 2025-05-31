@@ -9,7 +9,7 @@ public class Fire : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    public  void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Player2" || other.tag == "Player")
         {
