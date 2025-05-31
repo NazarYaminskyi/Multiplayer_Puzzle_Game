@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 public class UserAPI : MonoBehaviour
 {
-    [SerializeField] private GameObject userTextPrefab;  // текстовий префаб
+    [SerializeField] private GameObject userTextPrefab;  // text prefab
     [SerializeField] private Transform contentTransform; // Content зі ScrollView
 
 
-    private string apiUrl = "http://192.168.1.217:5000/users"; // або /players
+    private string apiUrl = "http://localhost:5000/players"; // або /players http://localhost:5000/players
 
 
     void Start()
@@ -36,7 +36,8 @@ public class UserAPI : MonoBehaviour
             {
                 GameObject obj = Instantiate(userTextPrefab, contentTransform);
                 TMPro.TextMeshProUGUI text = obj.GetComponent<TMPro.TextMeshProUGUI>();
-                text.text = $"Ім'я: {user.name} | Прогрес: {user.progress}";
+                text.text = $"Ім'я: {user.Name} | Рівень 1: {user.Level1Time} | Рівень 2: {user.Level2Time}";
+
             }
         }
         else
@@ -46,17 +47,3 @@ public class UserAPI : MonoBehaviour
     }
 }
 
-[System.Serializable]
-public class PlayerModel
-{
-    public int id;
-    public string name;
-    public string password;
-    public int progress;
-}
-
-[System.Serializable]
-public class PlayerModelList
-{
-    public List<PlayerModel> users;
-}

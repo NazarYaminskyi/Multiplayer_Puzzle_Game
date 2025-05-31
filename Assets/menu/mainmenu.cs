@@ -8,12 +8,12 @@ public class MainMenu : MonoBehaviour
     //    SceneManager.LoadScene("�����_�����"); // set name of scene
     //}
 
-    //public void OpenProgressList()
-    //{
-    //    Debug.Log("Trying to load: list");
-    //    SceneManager.LoadScene("list");
+    public void OpenProgressList()
+    {
+        Debug.Log("Trying to load: list");
+        SceneManager.LoadScene("list");
 
-    //}
+    }
 
     public void GoToMenu()
     {

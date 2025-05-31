@@ -10,7 +10,7 @@ public class Lever : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         xPosition = transform.position.x;
     }

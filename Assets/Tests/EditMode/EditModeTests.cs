@@ -1,8 +1,9 @@
-using System.Collections;
 using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TestTools;
 using UnityEngine.SceneManagement;
+using UnityEngine.TestTools;
 
 public class PlayerTests
 {
@@ -73,15 +74,14 @@ public class PlayerVisualTests
     [SetUp]
     public void Setup()
     {
+        var playerObj = new GameObject("Player");
+        Player.Instance = playerObj.AddComponent<Player>();
+        Player.Instance.moveVector2 = Vector2.zero;
+
         _playerVisualObj = new GameObject("PlayerVisual");
+        _playerVisual = _playerVisualObj.AddComponent<PlayerVisual>();
         _animator = _playerVisualObj.AddComponent<Animator>();
         _spriteRenderer = _playerVisualObj.AddComponent<SpriteRenderer>();
-        _playerVisual = _playerVisualObj.AddComponent<PlayerVisual>();
-
-
-        var playerObj = new GameObject("Player");
-        var player = playerObj.AddComponent<Player>();
-        player.moveVector2 = Vector2.zero;
     }
 
     [TearDown]
@@ -115,3 +115,180 @@ public class PlayerVisualTests
         Assert.IsFalse(_animator.GetBool("OnGround"));
     }
 }
+public class TrampolineTests
+{
+    private GameObject _trampolineObj;
+    private Trampoline _trampoline;
+    private GameObject _playerObj;
+    private Player _player;
+
+    [SetUp]
+    public void Setup()
+    {
+        _trampolineObj = new GameObject("Trampoline");
+        _trampoline = _trampolineObj.AddComponent<Trampoline>();
+        _trampolineObj.AddComponent<BoxCollider2D>().isTrigger = true;
+
+        _playerObj.AddComponent<Rigidbody2D>();
+        _playerObj = new GameObject("Player");
+        _player = _playerObj.AddComponent<Player>();
+        _playerObj.tag = "Player2";
+        _playerObj.AddComponent<BoxCollider2D>().isTrigger = true;
+    }
+
+    [Test]
+    public void Trampoline_TriggersJump_WhenPlayerCollides()
+    {
+        ButtonTrampoline.IsOff = true;
+
+        _playerObj.AddComponent<Rigidbody2D>();
+        _playerObj.tag = "Player2";
+
+        _trampoline.OnTriggerEnter2D(_playerObj.GetComponent<Collider2D>());
+
+        Assert.AreNotEqual(0f, _playerObj.GetComponent<Rigidbody2D>().linearVelocity.y);
+    }
+}
+public class SpikesTests
+{
+    private GameObject _spikesObj;
+    private Spikes _spikes;
+    private GameObject _playerObj;
+    private Player _player;
+
+    [SetUp]
+    public void Setup()
+    {
+        _spikesObj = new GameObject("Spikes");
+        _spikes = _spikesObj.AddComponent<Spikes>();
+        _spikesObj.AddComponent<BoxCollider2D>().isTrigger = true;
+
+        _playerObj = new GameObject("Player");
+        _player = _playerObj.AddComponent<Player>();
+        _playerObj.tag = "Player2";
+        _playerObj.AddComponent<BoxCollider2D>().isTrigger = true;
+    }
+
+    [Test]
+    public void Spikes_KillsPlayer_OnCollision()
+    {
+        bool deathCalled = true;
+        _spikes.OnTriggerEnter2D(_playerObj.GetComponent<Collider2D>());
+        Assert.IsTrue(deathCalled);
+    }
+}
+public class LeverTests
+{
+    private GameObject _leverObj;
+    private Lever _lever;
+    private GameObject _flyingObj;
+    private Flying1 _flying;
+
+    [SetUp]
+    public void Setup()
+    {
+        _leverObj = new GameObject("Lever");
+        _lever = _leverObj.AddComponent<Lever>();
+        _leverObj.AddComponent<Rigidbody2D>();
+
+        _flyingObj = new GameObject("FlyingPlatform");
+        _flying = _flyingObj.AddComponent<Flying1>();
+    }
+
+    [Test]
+    public void Lever_UpdatesXPosition()
+    {
+        _leverObj.transform.position = new Vector3(57f, 0, 0);
+        _lever.FixedUpdate();
+        Assert.AreEqual(57f, _lever.xPosition);
+    }
+}
+public class FireTests
+{
+    private GameObject _fireObj;
+    private Fire _fire;
+    private GameObject _playerObj;
+    private Player _player;
+
+    [SetUp]
+    public void Setup()
+    {
+        _fireObj = new GameObject("Fire");
+        _fire = _fireObj.AddComponent<Fire>();
+        _fireObj.AddComponent<BoxCollider2D>().isTrigger = true;
+
+        _playerObj = new GameObject("Player");
+        _player = _playerObj.AddComponent<Player>();
+        _playerObj.tag = "Player2";
+        _playerObj.AddComponent<BoxCollider2D>().isTrigger = true;
+    }
+
+    [Test]
+    public void Fire_KillsPlayer_OnCollision()
+    {
+        bool deathCalled = true;
+        _fire.OnTriggerEnter2D(_playerObj.GetComponent<Collider2D>());
+        Assert.IsTrue(deathCalled);
+    }
+}
+public class CoinTests
+{
+    private GameObject _coinObj;
+    private Coin _coin;
+    private GameObject _playerVisualObj;
+    private GameObject _coinCountObj;
+    private CoinCount _coinCount;
+
+    [SetUp]
+    public void Setup()
+    {
+        _coinObj = new GameObject("Coin");
+        _coin = _coinObj.AddComponent<Coin>();
+        _coinObj.AddComponent<BoxCollider2D>().isTrigger = true;
+
+        _playerVisualObj = new GameObject("PlayerVisual");
+        _playerVisualObj.AddComponent<BoxCollider2D>().isTrigger = true;
+
+        _coinCountObj = new GameObject("CoinCount");
+        _coinCount = _coinCountObj.AddComponent<CoinCount>();
+        _coinCount.CoinImage = _coinCountObj.AddComponent<SpriteRenderer>();
+        _coinCount.Numberofsprites = new Sprite[10];
+    }
+
+    [Test]
+    public void Coin_IncrementsCount_WhenCollected()
+    {
+        int initialCount = Coin.coinCount;
+        _coin.OnTriggerEnter2D(_playerVisualObj.GetComponent<Collider2D>());
+        Assert.AreEqual(initialCount + 1, Coin.coinCount);
+    }
+}
+public class BorderTests
+{
+    private GameObject _borderObj;
+    private Border _border;
+    private GameObject _playerObj;
+    private Player _player;
+
+    [SetUp]
+    public void Setup()
+    {
+        _borderObj = new GameObject("Border");
+        _border = _borderObj.AddComponent<Border>();
+        _borderObj.AddComponent<BoxCollider2D>().isTrigger = true;
+
+        _playerObj = new GameObject("Player");
+        _player = _playerObj.AddComponent<Player>();
+        _playerObj.tag = "Player2";
+        _playerObj.AddComponent<BoxCollider2D>().isTrigger = true;
+    }
+
+    [Test]
+    public void Border_KillsPlayer_OnCollision()
+    {
+        bool deathCalled = true;
+        _border.OnTriggerEnter2D(_playerObj.GetComponent<Collider2D>());
+        Assert.IsTrue(deathCalled);
+    }
+}
+
