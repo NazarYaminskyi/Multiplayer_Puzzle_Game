@@ -52,6 +52,7 @@ public class EndZone : MonoBehaviour
             camera2.enabled = true;
             GameObject p1 = GameObject.Find("1");
             GameObject p2 = GameObject.Find("2");
+            SceneManager.LoadScene("2nd Level", LoadSceneMode.Additive);
             p1.transform.position = new Vector2(21, -9);
             p2.transform.position = new Vector2(21, 4);
             
