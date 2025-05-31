@@ -6,9 +6,8 @@ public class Coin : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Об'єкт торкнувся: " + other.gameObject.name);
-        if(other.tag == "Player")
+        if(other.gameObject.name == "PlayerVisual")
         {
-            //CoinCount action = other.GetComponentInParent<CoinCount>();
             CoinCount action = FindObjectOfType<CoinCount>();
             coinCount++;
             Debug.Log($"{coinCount} - number now");

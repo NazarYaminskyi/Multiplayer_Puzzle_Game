@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 8439005135155287908}
   m_Layer: 0
   m_Name: PlayerVisual
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 3478265593585513688}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -304,11 +304,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  jumpForse: 7
+  jumpForce: 7
+  jumpKey: 119
+  leftKey: 97
+  rightKey: 100
+  Coordinates: {x: 21, y: 4}
   moveVector2: {x: 0, y: 0}
   _onGround: 0
   _groundCheck: {fileID: 9045255382668632657}
   _checkRadius: 0.1
   _ground:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 64

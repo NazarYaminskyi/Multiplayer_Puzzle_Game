@@ -13,12 +13,12 @@ public class button2 : MonoBehaviour
     void Start()
     {
         startPosition = door.position;
-        loweredPosition = startPosition + Vector3.down * moveDistance; 
+        loweredPosition = startPosition + Vector3.up * moveDistance; 
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) 
+        if (other.CompareTag("Player2")) 
         {
             isOpening = true;
         }
@@ -26,7 +26,7 @@ public class button2 : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player2"))
         {
             isOpening = false;
         }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3800012331244438249}
   - component: {fileID: 4698935092049496922}
   - component: {fileID: 3353153891060792832}
-  - component: {fileID: 6339424357239020003}
   m_Layer: 0
   m_Name: buttonDown
   m_TagString: Untagged
@@ -135,18 +134,3 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.8862834, y: 0.20481953}
   m_EdgeRadius: 0
---- !u!114 &6339424357239020003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8811368539162742240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd0f7cdd8f332cd4591a6ae62e0ff72c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 0}
-  moveDistance: 3
-  moveSpeed: 5

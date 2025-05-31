@@ -4,7 +4,7 @@ public class Border : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player2")
+        if(other.tag == "Player2" || other.tag == "Player")
         {
             Player player = other.GetComponentInParent<Player>();
             player.Death();

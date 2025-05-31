@@ -8,7 +8,7 @@ public class StartLevelFlying1 : MonoBehaviour
     private Vector2 direction = Vector2.up;
     void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(direction * (speed * Time.deltaTime));
         if (transform.position.y <= endpoint)
         {
             direction = Vector2.up;
@@ -20,9 +20,9 @@ public class StartLevelFlying1 : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player2")
+        if (other.tag == "Player2" || other.tag == "Player")
         {
-            PlayerController2DD player = other.transform.GetComponent<PlayerController2DD>();
+            Player player = other.GetComponentInParent<Player>();
             player.Death();
             Debug.Log("Destroyed!");
         }

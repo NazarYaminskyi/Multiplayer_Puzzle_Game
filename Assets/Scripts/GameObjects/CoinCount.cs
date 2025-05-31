@@ -9,7 +9,3 @@ public class CoinCount : MonoBehaviour
         CoinImage.sprite = Numberofsprites[coinCount];
     }
 }
-// CoinCount action = other.transform.GetComponent<CoinCount>();
-//             coinCount++;
-//             action.UpdateUI(coinCount);
-//public static int coinCount = 0;
