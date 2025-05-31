@@ -32,7 +32,7 @@ public class ButtonTrigger : MonoBehaviour
 
     private void CheckLevelComplete()
     {
-        if (!videoStarted && player1OnButton && player2OnButton && Coin.coinCount == -1)
+        if (!videoStarted && player1OnButton && player2OnButton && Coin.coinCount == 4)
         {
             videoStarted = true;
             PlayEndingVideo();
